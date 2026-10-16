@@ -184,7 +184,49 @@ const Harder = levels.filter((dif) => dif.Difficulty === "Harder");
 const Insane = levels.filter((dif) => dif.Difficulty === "Insane");
 const Demon = levels.filter((dif) => dif.Difficulty === "Demon");
 
-function addCart(ids) {
-  cart = [];
-  cart.push(ids);
+function sortByCategory(Cat) {
+  if (Cat === Easy) return Easy;
+  else if (Cat === Normal) return Normal;
+  else if (Cat === Hard) return Hard;
+  else if (Cat === Harder) return Harder;
+  else if (Cat === Insane) return Insane;
+  else if (Cat === Demon) return Demon;
 }
+
+cart = [];
+quant = [];
+
+function addCart(id, quantity) {
+  cart.push(levels.find((levels) => levels.id === id) || null);
+  quant.push(quantity);
+  Title = levels[id - 1].name;
+  Stars = levels[id - 1].Stars;
+  Difficulty = levels[id - 1].Difficulty;
+  Version = levels[id - 1].Version;
+  price = levels[id - 1].price;
+  return `You have added the level ${Title} with difficulty ${Difficulty} worth ${Stars} stars made in version ${Version} for ${price}$ to your cart x${quant};`;
+}
+
+function removeCart(id, quantity) {}
+
+console.log(addCart(1, 3));
+
+//Line 1: const index = ids.indexOf(idToRemove);
+
+//• What it does: It searches the array from left to right to find the position (index) of the very first matching ID it sees.
+//• Why it matters: Because indexOf() only ever returns the first match it finds, we have to look for it fresh on every turn of the loop.
+
+//Line 2: if (index === -1) break;
+
+//• What it does: If indexOf() searches the entire array and finds absolutely zero matches, it returns -1. If that happens, this line triggers a break, which immediately kills the loop.
+//• Why it matters: This is a safety eject button. If you ask the loop to remove 5 copies of an ID, but the array only contains 2, this line prevents the loop from running forever and freezing your browser.
+
+//Line 3: ids.splice(index, 1);
+
+//• What it does: This is the line that actually alters your data. It goes to the exact position we found in Step 1 and rips out exactly 1 item.
+//• Why it matters: Because it mutates the array, the array physically shrinks, and all the items to the right shift over by one spot to close the gap.
+
+//Line 4: amountToRemove--;
+
+//• What it does: It subtracts 1 from your target count (e.g., turning a quota of 2 into 1).
+//• Why it matters: It manages the loop's boundary condition. When this number hits 0, the main while (amountToRemove > 0) condition becomes false, and the loop successfully finishes.
