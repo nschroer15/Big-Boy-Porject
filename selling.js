@@ -194,17 +194,14 @@ function sortByCategory(Cat) {
 }
 
 cart = [];
-quant = [];
 
 function addCart(id, quantity) {
-  cart.push(levels.find((levels) => levels.id === id) || null);
-  quant.push(quantity);
-  Title = levels[id - 1].name;
-  Stars = levels[id - 1].Stars;
-  Difficulty = levels[id - 1].Difficulty;
-  Version = levels[id - 1].Version;
-  price = levels[id - 1].price;
-  return `You have added the level ${Title} with difficulty ${Difficulty} worth ${Stars} stars made in version ${Version} for ${price}$ to your cart x${quant};`;
+  const lev = cart.find((index) => index.id === id);
+  if (!lev) return "Product not found";
+  cart.findIndex(lev.id);
+  const here = cart.find((index) => index.id === id);
+  Title = levels[lev].name;
+  return `You have added the level ${Title} to your cart x${quant};`;
 }
 
 function removeCart(id, quantity) {}
