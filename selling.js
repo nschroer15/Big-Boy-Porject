@@ -1,179 +1,135 @@
 levels = [
   {
-    id: 1,
     name: "Stereo Madness",
     price: 0.99,
     Difficulty: "Easy",
     Stars: "1",
-    Version: "1.0",
   },
   {
-    id: 2,
     name: "Back On track",
     price: 1.99,
     Difficulty: "Easy",
     Stars: "2",
-    Version: "1.0",
   },
   {
-    id: 3,
     name: "Polargeist",
     price: 2.99,
     Difficulty: "Normal",
     Stars: "3",
-    Version: "1.0",
   },
   {
-    id: 4,
     name: "Dry Out",
     price: 4.99,
     Difficulty: "Normal",
     Stars: "4",
-    Version: "1.0",
   },
   {
-    id: 5,
     name: "Base After Base",
     price: 5.99,
     Difficulty: "Hard",
     Stars: "5",
-    Version: "1.0",
   },
   {
-    id: 6,
     name: "Can't Let Go",
     price: 7.99,
     Difficulty: "Hard",
     Stars: "6",
-    Version: "1.0",
   },
   {
-    id: 7,
     name: "Jumper",
     price: 9.99,
     Difficulty: "Harder",
     Stars: "7",
-    Version: "1.0",
   },
   {
-    id: 8,
     name: "Time Machine",
     price: 10.99,
     Difficulty: "Harder",
     Stars: "8",
-    Version: "1.1",
   },
   {
-    id: 9,
     name: "Cycles",
     price: 13.99,
     Difficulty: "Harder",
     Stars: "9",
-    Version: "1.2",
   },
   {
-    id: 10,
     name: "X-Step",
     price: 14.99,
     Difficulty: "Insane",
     Stars: "10",
-    Version: "1.3",
   },
   {
-    id: 11,
     name: "Clutterfunk",
     price: 17.99,
     Difficulty: "Insane",
     Stars: "11",
-    Version: "1.4",
   },
   {
-    id: 12,
     name: "Theory Of Everything",
     price: 18.99,
     Difficulty: "Insane",
     Stars: "12",
-    Version: "1.5",
   },
   {
-    id: 13,
     name: "Electroman Adventures",
     price: 20.99,
     Difficulty: "Insane",
     Stars: "10",
-    Version: "1.6",
   },
   {
-    id: 14,
     name: "Clubstep",
     price: 30.99,
     Difficulty: "Demon",
     Stars: "14",
-    Version: "1.6",
   },
   {
-    id: 15,
     name: "Electrodynamix",
     price: 22.99,
     Difficulty: "Insane",
     Stars: "12",
-    Version: "1.7",
   },
   {
-    id: 16,
     name: "Hexagon Force",
     price: 24.99,
     Difficulty: "Insane",
     Stars: "12",
-    Version: "1.8",
   },
   {
-    id: 17,
     name: "Blast Processing",
     price: 20.99,
     Difficulty: "Harder",
     Stars: "10",
-    Version: "1.9",
   },
   {
-    id: 18,
     name: "Theory Of Eveyrthing 2",
     price: 33.99,
     Difficulty: "Demon",
     Stars: "14",
-    Version: "1.9",
   },
   {
-    id: 19,
     name: "Geometrical Dominator",
     price: 23.99,
     Difficulty: "Harder",
     Stars: "10",
-    Version: "2.0",
   },
   {
-    id: 20,
     name: "Deadlocked",
     price: 40.99,
     Difficulty: "Demon",
     Stars: "15",
-    Version: "2.0",
   },
   {
-    id: 21,
     name: "Fingerdash",
     price: 28.99,
     Difficulty: "Insane",
     Stars: "12",
-    Version: "2.1",
   },
   {
-    id: 22,
     name: "Dash",
     price: 30.99,
     Difficulty: "Insane",
     Stars: "12",
-    Version: "2.2",
   },
 ];
 
@@ -193,20 +149,31 @@ function sortByCategory(Cat) {
   else if (Cat === Demon) return Demon;
 }
 
-cart = [];
+cart = {};
 
-function addCart(id, quantity) {
-  const lev = cart.find((index) => index.id === id);
-  if (!lev) return "Product not found";
-  cart.findIndex(lev.id);
-  const here = cart.find((index) => index.id === id);
-  Title = levels[lev].name;
-  return `You have added the level ${Title} to your cart x${quant};`;
+function addCart(level) {
+  if (cart[level.name]) {
+    cart[level.name].qty++;
+  } else {
+    cart[level.name] = level;
+  }
 }
+addCart({
+  name: "Stereo Madness",
+  price: 0.99,
+  Difficulty: "Easy",
+  Stars: 1,
+  Qty: 1,
+});
+console.log(cart);
 
-function removeCart(id, quantity) {}
-
-console.log(addCart(1, 3));
+function removeCart(level) {
+  if (cart[level.name]) {
+    cart[level.name].qty--;
+  }
+  if (cart[level.name].qty === 0) {
+  }
+}
 
 //Line 1: const index = ids.indexOf(idToRemove);
 
