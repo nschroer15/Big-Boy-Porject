@@ -133,14 +133,15 @@ levels = [
   },
 ];
 
-const Easy = levels.filter((dif) => dif.Difficulty === "Easy");
-const Normal = levels.filter((dif) => dif.Difficulty === "Normal");
-const Hard = levels.filter((dif) => dif.Difficulty === "Hard");
-const Harder = levels.filter((dif) => dif.Difficulty === "Harder");
-const Insane = levels.filter((dif) => dif.Difficulty === "Insane");
-const Demon = levels.filter((dif) => dif.Difficulty === "Demon");
+//Sorts By Difficulty
 
 function sortByCategory(Cat) {
+  const Easy = levels.filter((dif) => dif.Difficulty === "Easy");
+  const Normal = levels.filter((dif) => dif.Difficulty === "Normal");
+  const Hard = levels.filter((dif) => dif.Difficulty === "Hard");
+  const Harder = levels.filter((dif) => dif.Difficulty === "Harder");
+  const Insane = levels.filter((dif) => dif.Difficulty === "Insane");
+  const Demon = levels.filter((dif) => dif.Difficulty === "Demon");
   if (Cat === Easy) return Easy;
   else if (Cat === Normal) return Normal;
   else if (Cat === Hard) return Hard;
@@ -151,6 +152,8 @@ function sortByCategory(Cat) {
 
 cart = {};
 
+//Add to cart
+
 function addCart(level) {
   if (cart[level.name]) {
     cart[level.name].qty++;
@@ -158,39 +161,28 @@ function addCart(level) {
     cart[level.name] = level;
   }
 }
-addCart({
-  name: "Stereo Madness",
-  price: 0.99,
-  Difficulty: "Easy",
-  Stars: 1,
-  Qty: 1,
-});
+addCart({ name: "Stereo Madness", price: 0.99, qty: 1 });
+addCart({ name: "Back On Track", price: 1.99, qty: 2 });
 console.log(cart);
+
+//Remove from cart
 
 function removeCart(level) {
   if (cart[level.name]) {
     cart[level.name].qty--;
   }
   if (cart[level.name].qty === 0) {
+    delete cart[level.name];
   }
 }
 
-//Line 1: const index = ids.indexOf(idToRemove);
+//removeCart({ name: "Stereo Madness", price: 0.99, qty: 1 });
 
-//• What it does: It searches the array from left to right to find the position (index) of the very first matching ID it sees.
-//• Why it matters: Because indexOf() only ever returns the first match it finds, we have to look for it fresh on every turn of the loop.
+console.log(cart);
 
-//Line 2: if (index === -1) break;
-
-//• What it does: If indexOf() searches the entire array and finds absolutely zero matches, it returns -1. If that happens, this line triggers a break, which immediately kills the loop.
-//• Why it matters: This is a safety eject button. If you ask the loop to remove 5 copies of an ID, but the array only contains 2, this line prevents the loop from running forever and freezing your browser.
-
-//Line 3: ids.splice(index, 1);
-
-//• What it does: This is the line that actually alters your data. It goes to the exact position we found in Step 1 and rips out exactly 1 item.
-//• Why it matters: Because it mutates the array, the array physically shrinks, and all the items to the right shift over by one spot to close the gap.
-
-//Line 4: amountToRemove--;
-
-//• What it does: It subtracts 1 from your target count (e.g., turning a quota of 2 into 1).
-//• Why it matters: It manages the loop's boundary condition. When this number hits 0, the main while (amountToRemove > 0) condition becomes false, and the loop successfully finishes.
+//Total
+const Total = Object.values(cart).reduce(
+  (sum, item) => sum + item.price * item.qty,
+  0,
+);
+console.log(Total);
