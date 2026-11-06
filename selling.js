@@ -186,3 +186,22 @@ const Total = Object.values(cart).reduce(
   0,
 );
 console.log(Total);
+
+function inject(item) {
+  const container = document.querySelector(".container");
+  container.insertAdjacentHTML(
+    "beforeend",
+    `<div class="card">
+            <h2 class="header">${item.name}</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZXkPrxcghRTzE217yseYbFreL3CLOQTx068NgRbQQA&s" alt="Stereo Madness">
+            <p class="paragraph">Stars:${item.Stars}</p>
+            <p class="paragraph">Price:${item.price}</p>
+            <button class="btn">Add To Cart</button>
+        </div>
+`,
+  );
+}
+
+levels.forEach((item) => {
+  inject(item);
+});
