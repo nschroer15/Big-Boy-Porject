@@ -5,6 +5,7 @@ levels = [
     Difficulty: "Easy",
     Stars: "1",
     id: 1,
+    img: "Images/Stereo Madness.jpg",
   },
   {
     name: "Back On track",
@@ -12,6 +13,7 @@ levels = [
     Difficulty: "Easy",
     Stars: "2",
     id: 2,
+    img: "Images/Back on track.webp",
   },
   {
     name: "Polargeist",
@@ -19,6 +21,7 @@ levels = [
     Difficulty: "Normal",
     Stars: "3",
     id: 3,
+    img: "Images/polargesit.webp",
   },
   {
     name: "Dry Out",
@@ -26,6 +29,7 @@ levels = [
     Difficulty: "Normal",
     Stars: "4",
     id: 4,
+    img: "Images/dry out.webp",
   },
   {
     name: "Base After Base",
@@ -33,6 +37,7 @@ levels = [
     Difficulty: "Hard",
     Stars: "5",
     id: 5,
+    img: "Images/base after base.jpg",
   },
   {
     name: "Can't Let Go",
@@ -40,6 +45,7 @@ levels = [
     Difficulty: "Hard",
     Stars: "6",
     id: 6,
+    img: "Images/cant let go.webp",
   },
   {
     name: "Jumper",
@@ -47,6 +53,7 @@ levels = [
     Difficulty: "Harder",
     Stars: "7",
     id: 7,
+    img: "Images/jumper.jpg",
   },
   {
     name: "Time Machine",
@@ -54,6 +61,7 @@ levels = [
     Difficulty: "Harder",
     Stars: "8",
     id: 8,
+    img: "Images/Time machine.webp",
   },
   {
     name: "Cycles",
@@ -61,6 +69,7 @@ levels = [
     Difficulty: "Harder",
     Stars: "9",
     id: 9,
+    img: "Images/cycles.jpg",
   },
   {
     name: "X-Step",
@@ -68,6 +77,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "10",
     id: 10,
+    img: "Images/xstep.jpg",
   },
   {
     name: "Clutterfunk",
@@ -75,6 +85,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "11",
     id: 11,
+    img: "Images/clutterfunk.jpg",
   },
   {
     name: "Theory Of Everything",
@@ -82,6 +93,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "12",
     id: 12,
+    img: "Images/toe.jpg",
   },
   {
     name: "Electroman Adventures",
@@ -89,6 +101,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "10",
     id: 13,
+    img: "Images/electroman adventures.jpg",
   },
   {
     name: "Clubstep",
@@ -96,6 +109,7 @@ levels = [
     Difficulty: "Demon",
     Stars: "14",
     id: 14,
+    img: "Images/clubstep.jpg",
   },
   {
     name: "Electrodynamix",
@@ -103,6 +117,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "12",
     id: 15,
+    img: "Images/electrodynamix.jpg",
   },
   {
     name: "Hexagon Force",
@@ -110,6 +125,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "12",
     id: 16,
+    img: "Images/hexagon force.jpg",
   },
   {
     name: "Blast Processing",
@@ -117,6 +133,7 @@ levels = [
     Difficulty: "Harder",
     Stars: "10",
     id: 17,
+    img: "Images/blast proccesing.jpg",
   },
   {
     name: "Theory Of Eveyrthing 2",
@@ -124,6 +141,7 @@ levels = [
     Difficulty: "Demon",
     Stars: "14",
     id: 18,
+    img: "Images/toe2.webp",
   },
   {
     name: "Geometrical Dominator",
@@ -131,6 +149,7 @@ levels = [
     Difficulty: "Harder",
     Stars: "10",
     id: 19,
+    img: "Images/geo dom.jpg",
   },
   {
     name: "Deadlocked",
@@ -138,6 +157,7 @@ levels = [
     Difficulty: "Demon",
     Stars: "15",
     id: 20,
+    img: "Images/deadlocked.webp",
   },
   {
     name: "Fingerdash",
@@ -145,6 +165,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "12",
     id: 21,
+    img: "Images/Fingerdash.webp",
   },
   {
     name: "Dash",
@@ -152,6 +173,7 @@ levels = [
     Difficulty: "Insane",
     Stars: "12",
     id: 22,
+    img: "Images/dash.webp",
   },
 ];
 
@@ -215,7 +237,7 @@ function inject(item) {
     "beforeend",
     `<div class="card">
             <h2 class="header">${item.name}</h2>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpZXkPrxcghRTzE217yseYbFreL3CLOQTx068NgRbQQA&s" alt="Stereo Madness">
+            <img src="${item.img}" alt="Stereo Madness">
             <p class="paragraph">Stars: ${item.Stars}</p>
             <p class="paragraph">Price: ${item.price}</p>
             <button class="btn" data-item="${item.id}">Add To Cart</button>
