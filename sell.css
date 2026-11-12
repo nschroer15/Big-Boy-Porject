@@ -4,6 +4,13 @@
   font-style: normal;
 }
 
+.basic-regular {
+  font-family: "Basic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 
 html,
 body,
@@ -34,24 +41,28 @@ body{
     height: auto;
     display: block;
     margin: 0 auto;
-    padding: 3rem;
+    padding: 0rem;
     border-radius: 5rem;
+    border: .5rem solid black;
 }
 
 .Title{
     Font-size:15rem;
-    Font-weight:400;
+    Font-weight:300;
     font-family: "Oi";
     margin: 3rem;
 }
 
 .header{
     font-size:3rem;
+    font-family: "Basic";
+    padding: 2rem;
 }
 
 .paragraph{
     font-size:3rem;
     margin: 2rem;
+    font-family: "Basic";
 }
 
 .btn{
@@ -60,5 +71,31 @@ body{
     width:10rem;
     border-radius:.5rem;
     color: white;
-    background-color: #292929
+    background-color: #292929;
+    border-color: #292929;
+    font-family: "Basic";
+}
+
+.btn:hover{
+    background-color: #494949;
+    border-color: #494949;
+}
+
+.cart-img{
+    width: 30%;
+    height: 30%;
+}
+
+.cart-button{
+    border-radius: 2rem;
+}
+
+.cart-card{
+    background-color: #8f3f3f;
+    height: 20rem;
+    width:25rem;
+    display: inline-block;
+    border-radius: 3rem;
+    margin: 3rem;
+    padding: 3rem;
 }
