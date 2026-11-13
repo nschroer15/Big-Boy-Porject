@@ -10,92 +10,132 @@
   font-style: normal;
 }
 
-
-
-html,
-body,
-*{
-    font-size: 10px;
-    box-sizing:border-box;
-    margin: 0;
-    padding: 0;
-}
-body{
-    text-align:center;
-    background-color: #f09f9f;
-    font-weight:400;
-
-}
-.card{
-    height:60rem;
-    width:50rem;
-    background-color: rgba(228, 255, 133, 0.555);
-    display: inline-block;
-    border-radius: 2.5rem;
-    padding: 5rem;
-    margin: 5rem;
-}
-.card img{
-    width:100%;
-    height:60%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    padding: 0rem;
-    border-radius: 5rem;
-    border: .5rem solid black;
+html, body, * {
+  font-size: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.Title{
-    Font-size:15rem;
-    Font-weight:300;
-    font-family: "Oi";
-    margin: 3rem;
+body {
+  text-align: center;
+  background-color: #f09f9f;
+  font-weight: 400;
 }
 
-.header{
-    font-size:3rem;
-    font-family: "Basic";
-    padding: 2rem;
+.Title {
+  font-size: 8rem;
+  font-weight: 300;
+  font-family: "Oi", serif;
+  margin: 3rem;
 }
 
-.paragraph{
-    font-size:3rem;
-    margin: 2rem;
-    font-family: "Basic";
+.main-layout {
+  display: flex;
+  align-items: flex-start;
 }
 
-.btn{
-    font-size:1.5rem;
-    height:4rem;
-    width:10rem;
-    border-radius:.5rem;
-    color: white;
-    background-color: #292929;
-    border-color: #292929;
-    font-family: "Basic";
+/* Sidebar & Cart Button Alignment */
+.sidebar {
+  width: 25rem;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  height: fit-content;
+  margin: 2.5rem;
+  padding: 2rem;
+  border-radius: 2rem;
 }
 
-.btn:hover{
-    background-color: #494949;
-    border-color: #494949;
+.cart, .cart-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.cart-img{
-    width: 30%;
-    height: 30%;
+.cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 2rem;
+  background-color: #8f3f3f;
+  border: none;
+  cursor: pointer;
 }
 
-.cart-button{
-    border-radius: 2rem;
+.cart-button:hover {
+  background-color: #9f4f4f;
 }
 
-.cart-card{
-    background-color: #8f3f3f;
-    height: 20rem;
-    width:25rem;
-    display: inline-block;
-    border-radius: 3rem;
-    margin: 3rem;
-    padding: 3rem;
+.cart-image {
+  width: 4.5rem;   /* Replaces scale: 30% so the icon centers properly */
+  height: 4.5rem;
+  object-fit: contain;
+  display: block;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 4rem 6rem; /* 4rem vertical gap, 6rem horizontal gap */
+  padding: 2.5rem;
+  flex: 1;
+}
+
+
+.card {
+  width: 25rem;
+  min-height: 45rem;
+  background-color: rgba(228, 255, 133, 0.555);
+  border-radius: 2.5rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes the button evenly to the bottom */
+  align-items: center;            /* Centers image, text, and button horizontally */
+}
+
+.card img {
+  width: 20rem;
+  height: 15rem;
+  object-fit: cover; /* Keeps all images identical height without stretching */
+  display: block;
+  border-radius: 3rem;
+  border: 0.2rem solid black;
+}
+
+.header {
+  font-size: 2.5rem;
+  font-family: "Basic", sans-serif;
+  padding: 1rem;
+}
+
+.paragraph {
+  font-size: 2.5rem;
+  margin: 1rem;
+  font-family: "Basic", sans-serif;
+}
+
+.btn {
+  font-size: 1.5rem;
+  height: 4rem;
+  width: 10rem;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #292929;
+  border: none;
+  font-family: "Basic", sans-serif;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #494949;
 }
