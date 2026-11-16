@@ -194,7 +194,7 @@ function sortByCategory(Cat) {
   else if (Cat === Demon) return Demon;
 }
 
-cart = {};
+cart = [];
 
 //Add to cart
 
@@ -205,9 +205,9 @@ function addCart(level) {
     cart[level.name] = level;
   }
 }
-addCart({ name: "Stereo Madness", price: 0.99, qty: 1 });
-addCart({ name: "Back On Track", price: 1.99, qty: 2 });
-console.log(cart);
+//addCart({ name: "Stereo Madness", price: 0.99, qty: 1 });
+//addCart({ name: "Back On Track", price: 1.99, qty: 2 });
+//console.log(cart);
 
 //Remove from cart
 
@@ -222,7 +222,7 @@ function removeCart(level) {
 
 //removeCart({ name: "Stereo Madness", price: 0.99, qty: 1 });
 
-console.log(cart);
+//console.log(cart);
 
 //Total
 const Total = Object.values(cart).reduce(
@@ -253,6 +253,10 @@ levels.forEach((item) => {
 const buttons = document.querySelectorAll(".btn");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
-    console.log(event.target.getAttribute("data-item"));
+    ID = event.target.getAttribute("data-item");
+    cart.push(ID - 1);
+    console.log(cart);
   }),
 );
+
+function displaycart(cart) {}
