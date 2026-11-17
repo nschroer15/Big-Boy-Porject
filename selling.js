@@ -250,13 +250,50 @@ levels.forEach((item) => {
   inject(item);
 });
 
+let popup = [];
+
 const buttons = document.querySelectorAll(".btn");
 buttons.forEach((button) =>
   button.addEventListener("click", function (event) {
     ID = event.target.getAttribute("data-item");
     cart.push(ID - 1);
-    console.log(cart);
+    popup = [];
+    cart.forEach((index) => {
+      popup.push({
+        name: levels[index].name,
+        price: levels[index].price,
+      });
+      return popup;
+    });
+    console.log("Items", popup);
   }),
 );
 
-function displaycart(cart) {}
+const cartButton = document.querySelector(".cart-button");
+const cartPopup = document.querySelector(".cart-popup");
+
+cartButton.addEventListener("click", function () {
+  cartPopup.classList.toggle("hidden");
+
+  let total = 0;
+  popup.forEach((item) => {
+    total = total + item.price;
+  });
+
+  let itemsHTML = "";
+
+  if (popup.length === 0) {
+    itemsHTML = "<p class='popup-item'>Cart is empty</p>";
+  } else {
+    popup.forEach((item) => {
+      itemsHTML =
+        itemsHTML + `<p class="popup-item">${item.name} - $${item.price}</p>`;
+    });
+  }
+
+  cartPopup.innerHTML = `
+    ${itemsHTML}
+    <hr>
+    <p class="popup-total">Total: $${total.toFixed(2)}</p>
+  `;
+});

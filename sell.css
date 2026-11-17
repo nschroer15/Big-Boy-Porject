@@ -35,7 +35,6 @@ body {
   align-items: flex-start;
 }
 
-/* Sidebar & Cart Button Alignment */
 .sidebar {
   width: 25rem;
   flex-shrink: 0;
@@ -48,7 +47,10 @@ body {
   margin: 2.5rem;
   padding: 2rem;
   border-radius: 2rem;
+  position: sticky;
+  top: 2.5rem;
 }
+
 
 .cart, .cart-card {
   width: 100%;
@@ -74,7 +76,7 @@ body {
 }
 
 .cart-image {
-  width: 4.5rem;   /* Replaces scale: 30% so the icon centers properly */
+  width: 4.5rem;   
   height: 4.5rem;
   object-fit: contain;
   display: block;
@@ -85,7 +87,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
-  gap: 4rem 6rem; /* 4rem vertical gap, 6rem horizontal gap */
+  gap: 4rem 6rem; 
   padding: 2.5rem;
   flex: 1;
 }
@@ -99,18 +101,19 @@ body {
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Pushes the button evenly to the bottom */
-  align-items: center;            /* Centers image, text, and button horizontally */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card img {
   width: 20rem;
   height: 15rem;
-  object-fit: cover; /* Keeps all images identical height without stretching */
+  object-fit: cover;
   display: block;
   border-radius: 3rem;
   border: 0.2rem solid black;
 }
+
 
 .header {
   font-size: 2.5rem;
@@ -140,14 +143,7 @@ body {
   background-color: #494949;
 }
 
-.pop{
-  display: none;
-  height: 10rem;
-  width: 10rem;
-
-}
-
-/* .cart-popup {
+.cart-popup {
   background-color: white;
   width: 100%;
   margin-top: 1.5rem;
@@ -171,4 +167,3 @@ body {
   font-weight: bold;
   margin-top: 0.8rem;
 }
- */
