@@ -186,12 +186,12 @@ function sortByCategory(Cat) {
   const Harder = levels.filter((dif) => dif.Difficulty === "Harder");
   const Insane = levels.filter((dif) => dif.Difficulty === "Insane");
   const Demon = levels.filter((dif) => dif.Difficulty === "Demon");
-  if (Cat === Easy) return Easy;
-  else if (Cat === Normal) return Normal;
-  else if (Cat === Hard) return Hard;
-  else if (Cat === Harder) return Harder;
-  else if (Cat === Insane) return Insane;
-  else if (Cat === Demon) return Demon;
+  if (Cat === "Easy") return Easy;
+  else if (Cat === "Normal") return Normal;
+  else if (Cat === "Hard") return Hard;
+  else if (Cat === "Harder") return Harder;
+  else if (Cat === "Insane") return Insane;
+  else if (Cat === "Demon") return Demon;
 }
 
 cart = [];
@@ -250,44 +250,24 @@ levels.forEach((item) => {
   inject(item);
 });
 
-let popup = [];
-
-const buttons = document.querySelectorAll(".btn");
-buttons.forEach((button) =>
-  button.addEventListener("click", function (event) {
-    ID = event.target.getAttribute("data-item");
-    cart.push(ID - 1);
-    popup = [];
-    cart.forEach((index) => {
-      popup.push({
-        name: levels[index].name,
-        price: levels[index].price,
-      });
-      return popup;
-    });
-    console.log("Items", popup);
-  }),
-);
-
+const container = document.querySelector(".container");
 const cartButton = document.querySelector(".cart-button");
 const cartPopup = document.querySelector(".cart-popup");
+const removeCartBtn = document.querySelector(".remove-cart-button");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
-cartButton.addEventListener("click", function () {
-  cartPopup.classList.toggle("hidden");
+let popup = [];
 
+function updateCart() {
   let total = 0;
-  popup.forEach((item) => {
-    total = total + item.price;
-  });
-
   let itemsHTML = "";
 
   if (popup.length === 0) {
     itemsHTML = "<p class='popup-item'>Cart is empty</p>";
   } else {
     popup.forEach((item) => {
-      itemsHTML =
-        itemsHTML + `<p class="popup-item">${item.name} - $${item.price}</p>`;
+      total += item.price;
+      itemsHTML += `<p class="popup-item">${item.name} - $${item.price}</p>`;
     });
   }
 
@@ -296,4 +276,42 @@ cartButton.addEventListener("click", function () {
     <hr>
     <p class="popup-total">Total: $${total.toFixed(2)}</p>
   `;
+}
+
+container.addEventListener("click", function (event) {
+  if (event.target.classList.contains("btn")) {
+    const id = event.target.getAttribute("data-item");
+    const level = levels[id - 1];
+    cart.push(id - 1);
+    popup.push({ name: level.name, price: level.price });
+    updateCart();
+  }
+});
+
+cartButton.addEventListener("click", function () {
+  cartPopup.classList.toggle("hidden");
+  updateCart();
+});
+
+removeCartBtn.addEventListener("click", function () {
+  cart.pop();
+  popup.pop();
+  updateCart();
+});
+
+// 6. Filter cards by difficulty
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const category = (btn.getAttribute("data-cat") || btn.textContent)
+      .trim()
+      .toLowerCase();
+    container.innerHTML = "";
+
+    const filtered =
+      category === "all"
+        ? levels
+        : levels.filter((lvl) => lvl.Difficulty.toLowerCase() === category);
+
+    filtered.forEach((item) => inject(item));
+  });
 });

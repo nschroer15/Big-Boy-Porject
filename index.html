@@ -6,27 +6,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Basic&family=Oi&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Geometry Dash Shop</title>
     <link rel="stylesheet" href="sell.css">
 </head>
-
 <body>
-    
     <h1 class="Title">Geometry Dash Shop</h1>
     <div class="main-layout">
-        <div class="sidebar">    
+        <div class="sidebar">
             <div class="cart">
                 <div class="cart-card">
                     <h1 class="header">Cart</h1>
-                    <button class="cart-button"><img class= "cart-image" src="Images/Cart.png" alt="Cart"></button>
+                    <button class="cart-button"><img class="cart-image" src="Images/Cart.png" alt="Cart"></button>
                 </div>
-                <div class="cart-popup hidden">  
+                <div class="cart-popup hidden"></div>
+            </div>
+
+            <div class="remove-cart-card">
+                <button class="remove-cart-button">
+                    <span class="remove-cart">Remove Latest Item</span>
+                </button>
+            </div>
+            <div class="filters">
+                <h2 class="header">Filters</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="All">All</button>
+                    <button class="filter-btn" data-category="Easy">Easy</button>
+                    <button class="filter-btn" data-category="Normal">Normal</button>
+                    <button class="filter-btn" data-category="Hard">Hard</button>
+                    <button class="filter-btn" data-category="Harder">Harder</button>
+                    <button class="filter-btn" data-category="Insane">Insane</button>
+                    <button class="filter-btn" data-category="Demon">Demon</button>
                 </div>
             </div>
         </div>
-        <div class="container"></div>       
+
+        <div class="container"></div>
     </div>
     <script src="selling.js"></script>
 </body>
 </html>
-
