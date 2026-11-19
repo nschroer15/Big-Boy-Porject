@@ -315,3 +315,10 @@ filterBtns.forEach((btn) => {
     filtered.forEach((item) => inject(item));
   });
 });
+
+document.querySelector("form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  let x = document.querySelector("#coupon");
+  console.log(x);
+  x.value = "";
+});
